@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <div className="w-full bg-[#4f4f4f] flex flex-col md:flex-row justify-between px-[120px] py-[30px]">
             <div className='text-xs pt-2 sm:pl-[92px] text-[white] mb-[20px]'>
-                @ 2022 Goldefy. All rights reserved. &nbsp;
+                @ 2022 CryptoWarriors. All rights reserved. &nbsp;
                 Privacy Policy | Terms &amp; Conditons
             </div>
             <div className='flex flex-col justify-end items-center'>
