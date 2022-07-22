@@ -1,6 +1,6 @@
 import Investors from "./Investors";
 import PriceBox from "./PriceBox";
-import Timer from "./timer";
+import Timer from "./Timer";
 import { useWeb3React } from "@web3-react/core";
 import { useDispatch } from "react-redux";
 import { showWalletConnector, showCryptoPayment } from 'store/slices/utilSlice';
