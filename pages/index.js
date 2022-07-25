@@ -12,7 +12,7 @@ export default function Home() {
       <Head>
         <title>Crypto Warriors ICO Presale</title>
         <meta name="description" content="Crypto Warriors" />
-        <link rel="icon" href="/images/logo-white.png" />
+        <link rel="icon" href="/images/logo-white.jpeg" />
       </Head>
 
       <main className={styles.main}>

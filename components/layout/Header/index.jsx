@@ -12,14 +12,14 @@ export default function Header() {
     const { isWalletConnector } = useUtil();
 
     return (
-        <div className="h-[80px] z-30 fixed bg-[#ffffff] w-full top-0 p-[10px] flex justify-center">
+        <div className="h-[80px] z-30 fixed bg-[#ffffff] w-full top-0 p-[10px] flex justify-center shadow">
             <div className='w-[1280px] flex justify-between items-center'>
-                <div>
+                <div className='h-[61px] pt-[5px]'>
                     <Image 
-                        src='/images/logo-white.png' 
+                        src='/images/logo-white.jpeg' 
                         alt='Crypto Warriors'
-                        width={109}
-                        height={45}
+                        width={150}
+                        height={61}
                     />
                 </div>
                 <div className='flex'>
@@ -35,15 +35,15 @@ export default function Header() {
                             <WalletConnector/>
                         }
                     </button>
-                    <button className='bg-[#3434FF] hover:bg-[#2C23D2] text-[white] rounded-[6px] h-[50px] px-[20px] flex items-center justify-center'
+                    {/* <button className='bg-[#3434FF] hover:bg-[#2C23D2] text-[white] rounded-[6px] h-[50px] px-[20px] flex items-center justify-center'
                         onClick={() => {console.log(chainId)}}>
                         Sign Up
-                    </button>
+                    </button> */}
                 </div>
             </div>
-            <div className='absolute top-[80px] w-full'>
+            {/* <div className='absolute top-[80px] w-full'>
                 <Image src='/images/shadow-separator-wide-bottom.png' width={2044} height={41} alt='' />
-            </div>
+            </div> */}
             { isWalletConnector && 
                 <div className='fixed w-[100vw] h-[100vh] bg-[transparent] top-0'
                 onClick={() => {dispatch(hideWalletConnector())}}

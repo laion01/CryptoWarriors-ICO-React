@@ -87,7 +87,7 @@ export default function WalletConnector() {
     };
 
     return (
-        <div className="z-40 absolute flex flex-col justify-center p-[20px] bg-[white] top-[50px] right-[0px] border border-[lightgray] min-w-[280px] rounded-[5px]">
+        <div className="z-40 absolute flex flex-col justify-center p-[20px] bg-[white] top-[50px] right-[0px] border border-[lightgray] min-w-[280px] rounded-[5px] shadow">
             <div className="w-full my-[20px]">
                 <Image
                     src= { account ? '/images/svg/unlock.svg' : '/images/svg/lock.svg'}

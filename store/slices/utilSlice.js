@@ -7,7 +7,8 @@ import {
     isOverlay: false,
     isSpinner: false,
     isWalletConnector: false,
-    isCryptoPayment: false
+    isCryptoPayment: false,
+    isPaypalPayment: false,
   };
   
   export const utilSlice = createSlice({
@@ -47,6 +48,14 @@ import {
 
       hideCryptoPayment: (state) => {
         state.isCryptoPayment = false;
+      },
+
+      showPaypalPayment: (state) => {
+        state.isPaypalPayment = true;
+      },
+
+      hidePaypalPayment: (state) => {
+        state.isPaypalPayment = false;
       }
     },
   });
@@ -59,7 +68,9 @@ import {
     showWalletConnector,
     hideWalletConnector,
     showCryptoPayment,
-    hideCryptoPayment
+    hideCryptoPayment,
+    showPaypalPayment,
+    hidePaypalPayment,
   } = utilSlice.actions;
   
   // exporting the reducer here, as we need to add this to the store
