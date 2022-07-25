@@ -12,6 +12,7 @@ const getLibrary = (provider) => {
 };
 
 function MyApp({ Component, pageProps }) {
+
   return (
     <Provider store={store}>
       <Web3ReactProvider

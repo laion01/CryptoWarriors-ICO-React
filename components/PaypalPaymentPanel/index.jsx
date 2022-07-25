@@ -4,6 +4,8 @@ import { PayPalButton } from "react-paypal-button-v2";
 import { useDispatch } from "react-redux";
 import { hidePaypalPayment } from "store/slices/utilSlice";
 import { TokenSymbol } from "config";
+import Image from 'next/image';
+import { PAYPAL_CLIENT_ID, PAYPAL_CURRENCY } from "config";
 
 export default function PaypalPaymentPanel() {
     const dispatch = useDispatch();
@@ -43,12 +45,12 @@ export default function PaypalPaymentPanel() {
                         </input>
                     </div>
                 </div>
-                <div className="w-full overflow-scroll p-[10px] pb-[15px] flex justify-end items-center border-t-[2px] border-[gray] justify-center">
+                <div className="w-full p-[10px] pb-[15px] flex items-center border-t-[2px] border-[gray] justify-center">
                     <PayPalButton
                         amount={usdAmount}
                         options={{
-                            clientId: "AejKQzgkVDrZXqyEzBwdtoBkWgOJAi07i691g2izWUPs5Dv106RGgIMLm4tdu0DbNoDgcjyNnYUgvUmE",
-                            currency: "USD",
+                            clientId: PAYPAL_CLIENT_ID,
+                            currency: PAYPAL_CURRENCY,
                         }}
                         // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
                         onSuccess={(details, data) => {

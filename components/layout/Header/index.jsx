@@ -5,6 +5,9 @@ import { useDispatch } from 'react-redux';
 import { showWalletConnector, hideWalletConnector } from 'store/slices/utilSlice';
 import { useWeb3React } from '@web3-react/core';
 import { useUtil} from 'store/hook';
+import Navbar from './Navbar';
+import SocialMedia from './SocialMedia';
+
 
 export default function Header() {
     const { account, chainId } = useWeb3React();
@@ -22,7 +25,15 @@ export default function Header() {
                         height={61}
                     />
                 </div>
+                <Navbar/>
+                
                 <div className='flex'>
+                    <div className='px-[16px] items-center flex'>
+                        <SocialMedia link='https://www.facebook.com/Cryptowarriorsacademy/' iconName='facebook'/>
+                        <SocialMedia link='https://www.youtube.com/channel/UCeHxZN4Y3-w9cxR4kX5ty5Q' iconName='youtube'/>
+                        <SocialMedia link='https://www.instagram.com/cryptowarriorscommunity/' iconName='instagram'/>
+                        <SocialMedia link='https://www.linkedin.com/company/crypto-warriors-community/' iconName='linkedin'/>
+                    </div>
                     <button 
                         className='relative bg-[#f2f5f7]  border-2 border-[#afc4d3] hover:border-[#7ea0b8] border-b-[#7ea0b8] rounded-[6px] h-[50px] px-[20px] flex items-center justify-center mr-[10px]'
                             onClick={() => {console.log('dispatch'), dispatch(showWalletConnector())}}

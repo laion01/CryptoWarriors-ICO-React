@@ -1,23 +1,22 @@
 import Image from 'next/image';
 import ChatButton from './ChartButton';
-import SocialIcon from 'components/SocialIcon';
-
+import SocialMedia from './SocialMedia';
 export default function Footer() {
     return (
-        <div className="w-full bg-[#141414] flex flex-col md:flex-row justify-between px-[120px] py-[30px]">
+        <div className="w-full bg-[#3234ff] flex flex-col md:flex-row justify-center md:justify-between px-[120px] py-[30px] items-center">
             <div className='flex flex-col'>
-                <div className='text-xs pt-2 text-[white] mb-[20px]'>
-                    @ 2022 CryptoWarriors. All rights reserved. &nbsp;
-                    Privacy Policy | Terms &amp; Conditons
+                <div className='text-xs pt-2 text-[white] text-[24px]'>
+                    @ 2022 Crypto Warriors Academy
                 </div>
-                <div className='flex'>
-                    <SocialIcon type='facebook' size={32} link='https://www.facebook.com/Cryptowarriorsacademy/'/>
-                    <SocialIcon type='twitter' size={32} link='https://twitter.com/'/>
-                    <SocialIcon type='instagram' size={32} link='https://www.instagram.com/cryptowarriorscommunity/'/>
-                    <SocialIcon type='linkedin' size={32} link='https://www.linkedin.com/company/crypto-warriors-community/'/>
-                </div>
+                
             </div>
-            <div className='flex flex-col justify-end items-center'>
+            <div className='flex'>
+                <SocialMedia link='https://www.facebook.com/Cryptowarriorsacademy/' iconName='facebook'/>
+                <SocialMedia link='https://www.youtube.com/channel/UCeHxZN4Y3-w9cxR4kX5ty5Q' iconName='youtube'/>
+                <SocialMedia link='https://www.instagram.com/cryptowarriorscommunity/' iconName='instagram'/>
+                <SocialMedia link='https://www.linkedin.com/company/crypto-warriors-community/' iconName='linkedin'/>
+            </div>
+            {/* <div className='flex flex-col justify-end items-center'>
                     <div className='flex space-x-[5px]'>
                 <ChatButton imagePath='/images/discord.png' bgColor='#6e52cd' text='Join Discord' />
                 <ChatButton imagePath='/images/telegram.png' bgColor='#005dff' text='Join Telegram' />
@@ -27,7 +26,7 @@ export default function Footer() {
                 competitions and more!
                 </div>
 
-            </div>
+            </div> */}
         </div>
     )
 }

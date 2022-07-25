@@ -6,3 +6,6 @@ export const TokenSymbol = "CWS";
 
 export const CHAINID = 97;
 export const RPCURL = 'https://data-seed-prebsc-2-s2.binance.org:8545';
+
+export const PAYPAL_CLIENT_ID = 'AejKQzgkVDrZXqyEzBwdtoBkWgOJAi07i691g2izWUPs5Dv106RGgIMLm4tdu0DbNoDgcjyNnYUgvUmE';
+export const PAYPAL_CURRENCY = 'USD';
