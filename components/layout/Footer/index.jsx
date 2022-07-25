@@ -11,10 +11,10 @@ export default function Footer() {
                     Privacy Policy | Terms &amp; Conditons
                 </div>
                 <div className='flex'>
-                    <SocialIcon type='facebook' size={32}/>
-                    <SocialIcon type='twitter' size={32}/>
-                    <SocialIcon type='instagram' size={32}/>
-                    <SocialIcon type='linkedin' size={32}/>
+                    <SocialIcon type='facebook' size={32} link='https://www.facebook.com/Cryptowarriorsacademy/'/>
+                    <SocialIcon type='twitter' size={32} link='https://twitter.com/'/>
+                    <SocialIcon type='instagram' size={32} link='https://www.instagram.com/cryptowarriorscommunity/'/>
+                    <SocialIcon type='linkedin' size={32} link='https://www.linkedin.com/company/crypto-warriors-community/'/>
                 </div>
             </div>
             <div className='flex flex-col justify-end items-center'>
