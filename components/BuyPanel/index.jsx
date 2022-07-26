@@ -61,7 +61,7 @@ export default function BuyPanel() {
 
     return (
         <div className="flex flex-col justify-center items-center my-[40px] mt-20">
-            <h1 className="text-[42px] mb-[20px]">Crypto Warriors ICO Presale</h1>
+            <h1 className="text-[42px] sm:text-[32px] mb-[20px] text-center">Crypto Warriors ICO Presale</h1>
 
             <p className='text-[24px] mb-[10px]'> { !loaded ? 'Loading...' : percentage + '%' } </p>
             <div className="w-[80%] bg-[lightgray] h-[12px] rounded-[6px]">

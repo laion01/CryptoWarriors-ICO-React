@@ -17,23 +17,39 @@ export default function Header() {
     const dispatch = useDispatch();
     const { isWalletConnector } = useUtil();
     const [ isDropDown, openDropdown ] = useState(false);
+    const [ isShadow, showShadow] = useState(false);
+    useEffect(() => {
+        if(window) {
+            window.onscroll = function() {
+                checkScroll();
+            }
+        }
+    }, [])
+
+    const checkScroll = function() {
+        if(window.pageYOffset > 30) {
+            showShadow(true);
+        } else {
+            showShadow(false);
+        }
+    }
 
     return (
-        <div className="h-[80px] z-30 fixed bg-[#ffffff] w-full top-0 p-[10px] flex justify-center shadow">
+        <div className={"z-30 fixed bg-[#ffffff] w-full top-0 p-[10px] flex justify-center " + (isShadow ? "shadow h-[61px] " : "h-[71px] ")}>
             <div className='w-[1280px] flex justify-between items-center'>
-                <div className='h-[61px] pt-[5px]'>
+                <div className='h-[50px] items-center'>
                     <Image 
                         src='/images/logo-white.jpeg' 
                         alt='Crypto Warriors'
-                        width={150}
-                        height={61}
+                        width={121.52}
+                        height={50}
                     />
                 </div>
 
                 <div className='flex justify-end items-center'>
                     <Navbar className="hidden lg:block"/>
                     
-                    <div className='hidden lg:flex'>
+                    <div className='hidden lg:flex items-center'>
                         <div className='px-[16px] items-center flex justify-center'>
                             <SocialMediaRect link='https://www.facebook.com/Cryptowarriorsacademy/' iconName='facebook'/>
                             <SocialMediaRect link='https://www.youtube.com/channel/UCeHxZN4Y3-w9cxR4kX5ty5Q' iconName='youtube'/>
@@ -41,7 +57,7 @@ export default function Header() {
                             <SocialMediaRect link='https://www.linkedin.com/company/crypto-warriors-community/' iconName='linkedin'/>
                         </div>
                         <button 
-                            className='relative bg-[#3434FF] hover:bg-[#2C23D2] text-[white] border-2 border-[#afc4d3] border-b-[#7ea0b8] rounded-[6px] h-[50px] px-[20px] flex items-center justify-center mr-[10px] text-[1.1rem]'
+                            className='relative bg-[#3434FF] hover:bg-[#2C23D2] text-[white] border-2 border-[#afc4d3] border-b-[#7ea0b8] rounded-[6px] h-[40px] px-[20px] flex items-center justify-center mr-[10px] text-[1.1rem]'
                                 onClick={() => {dispatch(showWalletConnector())}}
                             >
                             {account ? account.substring(0, 6) + "..." + account.substring(account.length - 4) : 'Connect wallet'}
