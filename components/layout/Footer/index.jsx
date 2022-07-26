@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <div className="w-full bg-[#3234ff] flex flex-col md:flex-row justify-center md:justify-between px-[120px] py-[30px] items-center">
             <div className='flex flex-col'>
-                <div className='text-xs pt-2 text-[white] text-[24px]'>
+                <div className='text-xs pt-2 text-[white] text-[1.2rem]'>
                     @ 2022 Crypto Warriors Academy
                 </div>
                 
