@@ -60,7 +60,7 @@ export default function Header() {
                         <FontAwesomeSvgIcon icon={ faBars } className="w-[30px] h-[30px]"/>
                     </div>
                     { isDropDown &&
-                        <div className='fixed w-full left-0 z-50'>
+                        <div className='fixed w-full left-0 z-50 top-0'>
                             <div className='flex w-full flex-col p-[20px] bg-[white] shadow'>
                                 <Button link='https://www.cryptowarriorscoin.com/index.html' label='Home'></Button>
                                 <Button link='https://www.cryptowarriorscoin.com/index.html#team02-d' label='About'></Button>
@@ -72,7 +72,7 @@ export default function Header() {
                                     <SocialMedia link='https://www.instagram.com/cryptowarriorscommunity/' iconName='instagram'/>
                                     <SocialMedia link='https://www.linkedin.com/company/crypto-warriors-community/' iconName='linkedin'/>
                                 </div>
-                                <button 
+                                {/* <button 
                                     className='relative bg-[#f2f5f7]  border-2 border-[#afc4d3] hover:border-[#7ea0b8] border-b-[#7ea0b8] rounded-[6px] h-[50px] px-[20px] flex items-center justify-center'
                                         onClick={() => {dispatch(showWalletConnector())}}
                                     >
@@ -80,7 +80,7 @@ export default function Header() {
                                     <div className='ml-[10px]'>
                                         <Image src='/images/wallet.svg' alt='' width={20} height={20}/>
                                     </div>
-                                </button>
+                                </button> */}
                             </div>
                         </div>
                     }
