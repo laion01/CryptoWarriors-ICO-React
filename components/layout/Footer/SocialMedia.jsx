@@ -5,7 +5,6 @@ import { faFacebookF, faYoutube, faInstagram, faLinkedinIn } from '@fortawesome/
 export default function SocialMedia({link, iconName}) {
 
     const getIcon = function (name) {
-        console.log(name);
         switch(name) {
             case 'facebook':
                 return faFacebookF;

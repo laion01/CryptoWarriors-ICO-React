@@ -2,10 +2,9 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faYoutube, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
-export default function SocialMedia({link, iconName}) {
+export default function SocialMediaRect({link, iconName}) {
 
     const getIcon = function (name) {
-        console.log(name);
         switch(name) {
             case 'facebook':
                 return faFacebookF;

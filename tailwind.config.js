@@ -11,6 +11,9 @@ module.exports = {
       },
       fontFamily: {
         'ibm': ['IBM Plex Sans', 'sans-serif']
+      },
+      zIndex: {
+        '45': '45',
       }
     },
   },

@@ -44,7 +44,6 @@ export default function WalletConnector() {
                 await activate(CoinbaseWallet);
                 break;
             case 'MetaMask':
-                console.log('metamask')
                 await activate(MetamaskWallet);
                 break;
             default:
@@ -87,13 +86,13 @@ export default function WalletConnector() {
     };
 
     return (
-        <div className="z-40 absolute flex flex-col justify-center p-[20px] bg-[white] top-[50px] right-[0px] border border-[lightgray] min-w-[280px] rounded-[5px] shadow">
-            <div className="w-full my-[20px]">
+        <div className="z-50 fixed lg:absolute flex flex-col justify-center  top-[20px] right-[20px] p-[20px] bg-[white] lg:top-[70px] lg:right-[20px] border border-[lightgray] min-w-[280px] rounded-[5px] shadow">
+            <div className="w-full my-[20px] flex justify-center items-center">
                 <Image
                     src= { account ? '/images/svg/unlock.svg' : '/images/svg/lock.svg'}
                     alt=''
-                    width={160}
-                    height={160}
+                    width={80}
+                    height={80}
                 />
             </div>
             <p className='mb-[20px] text-[24px]'>{account ? account.substring(0, 6) + "..." + account.substring(account.length - 4) : loading ? 'Connecting...' : 'Connect your wallet'}</p>

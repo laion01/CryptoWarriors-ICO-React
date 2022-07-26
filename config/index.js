@@ -1,5 +1,5 @@
-export const ContractAddress = "0x1ebED51adda0E52E127b7646110AEA9d494CD001";
-export const TokenAddress = "0xB9927BC20e2682Cd18c686d98933672c924eF579";
+export const ContractAddress = "0xD007450c2e9A5E21ed79AC27Df8E1aA1356d6417";
+export const TokenAddress = "0x26969A38b2a24D4DaB7618CC4C15E844e1C5Ab47";
 export const USDTAddress = "0x7ef95a0FEE0Dd31b22626fA2e10Ee6A223F8a684";
 export const TokenName = "CryptoWarriors";
 export const TokenSymbol = "CWS";

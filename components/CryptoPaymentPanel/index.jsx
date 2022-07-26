@@ -42,9 +42,7 @@ export default function CryptoPaymetPanel() {
           const tokenContract = new web3.eth.Contract(BEP20_ABI, token);
     
           const args = [ContractAddress, web3?.utils.toWei(String(amount))];
-          console.log(args);
           const func = "approve";
-          console.log(args);
           const {success, gas, message}  = await estimateGas(tokenContract, func, 0, args);
           if(!success) {
               alert(message);
@@ -95,7 +93,6 @@ export default function CryptoPaymetPanel() {
         if(allowance < usdtAmount) {
           await setAllowance(USDTAddress, usdtAmount);
         }
-        console.log(allowance);
       }
     
     const buy = async() => {
@@ -104,9 +101,7 @@ export default function CryptoPaymetPanel() {
           const icoContract = new web3.eth.Contract(ICO_ABI , ContractAddress);
     
           const args = [web3?.utils.toWei(String(usdtAmount))];
-          console.log(args);
           const func = "buy";
-          console.log(args);
           const {success, gas, message}  = await estimateGas(icoContract, func, 0, args);
           if(!success) {
               alert(message);

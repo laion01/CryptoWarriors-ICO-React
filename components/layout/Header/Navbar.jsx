@@ -1,8 +1,8 @@
 import NavItem from "./NavItem"
 
-export default function Navbar() {
+export default function Navbar({className}) {
     return (
-        <div>
+        <div className={className}>
             <NavItem link='https://www.cryptowarriorscoin.com/index.html' target='_blank' label='Home'/>
             <NavItem link='https://www.cryptowarriorscoin.com/index.html#team02-d' target='_blank' label='About'/>
             <NavItem link='https://www.cryptowarriorscoin.com/index.html#features014-0' target='_blank' label='Ecosystem'/>

@@ -28,8 +28,6 @@ export default function Timer() {
           setMins(m);
           setHours(h);
           setDays(d);
-          
-          console.log("timer");
         }, 1000);
     }, []);
 
@@ -37,7 +35,6 @@ export default function Timer() {
         const web3 = new Web3(RPCURL)
         const icoContract = new web3.eth.Contract(ICO_ABI, ContractAddress);
         let t = await icoContract.methods.releaseTime().call();
-        console.log('ico_endtime: ', t);
         setEndTime(t);
     }
 
