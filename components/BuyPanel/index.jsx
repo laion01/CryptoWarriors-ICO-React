@@ -16,7 +16,7 @@ import PaypalPaymentPanel from "components/PaypalPaymentPanel";
 export default function BuyPanel() {
     
     const initialInvestors = 967;
-    const price = 0.02;
+    const price = 0.03;
     const [currentCap, setCurrentCap] = useState(0);
     const [hardCap, setHardCap] = useState('8,600,000.00');
     const [percentage, setPercentage] = useState(0);

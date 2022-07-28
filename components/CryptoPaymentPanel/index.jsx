@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { hideCryptoPayment } from "store/slices/utilSlice";
+import { hideCryptoPayment, showOverlay, showSpinner, hideOverlay, hideSpinner } from "store/slices/utilSlice";
 import { useWeb3React } from "@web3-react/core";
 import { ContractAddress, TokenAddress, USDTAddress, TokenName, TokenSymbol, RPCURL} from "config";
 import { BEP20_ABI, ICO_ABI } from "config/abi";
 import Web3 from "web3";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CryptoPaymetPanel() {
     const dispatch = useDispatch();
@@ -19,6 +22,7 @@ export default function CryptoPaymetPanel() {
         const tokenContract = new web3.eth.Contract(BEP20_ABI, token);
         let allowance = await tokenContract.methods.allowance(account, ContractAddress).call();
         allowance = web3.utils.fromWei(allowance);
+        console.log("Allowance amount: ", allowance);
         setAllowanceAmount(allowance);
     }
 
@@ -37,22 +41,29 @@ export default function CryptoPaymetPanel() {
     }
     
     async function setAllowance(token, amount) {
-        const web3 = new Web3(library.provider);
+        
         try {
+            console.log(library.provider);
+          dispatch(showSpinner());
+          const web3 = new Web3(library.provider);
           const tokenContract = new web3.eth.Contract(BEP20_ABI, token);
     
           const args = [ContractAddress, web3?.utils.toWei(String(amount))];
           const func = "approve";
           const {success, gas, message}  = await estimateGas(tokenContract, func, 0, args);
           if(!success) {
-              alert(message);
+              dispatch(hideSpinner());  
+              toast.error(message);
               return;
           }
           const res = await runSmartContract(tokenContract, func, 0, args)
           setAllowanceAmount(amount);
-          alert("approve success");
+          dispatch(hideSpinner());
+          toast.success("Approve success");
         } catch (e) {
           console.log(e);
+          dispatch(hideSpinner());
+          toast.error("Transaction failed");
         }
         
       }
@@ -96,22 +107,29 @@ export default function CryptoPaymetPanel() {
       }
     
     const buy = async() => {
-        if(web3 == undefined) return ;
         try {
+          dispatch(showSpinner());
+          const web3 = new Web3(library.provider);
           const icoContract = new web3.eth.Contract(ICO_ABI , ContractAddress);
     
           const args = [web3?.utils.toWei(String(usdtAmount))];
           const func = "buy";
           const {success, gas, message}  = await estimateGas(icoContract, func, 0, args);
           if(!success) {
-              alert(message);
+              dispatch(hideSpinner());
+              toast.error(message);
               return;
           }
           const res = await runSmartContract(icoContract, func, 0, args);
-          getAllowance(USDTAddress);
-          alert("Buy success");
+          await getAllowance(USDTAddress);
+        //   alert("Buy success");
+          dispatch(hideSpinner());
+          setUSDTAmount(0);
+          toast.success("Buy Success");
         } catch (e) {
           console.log(e);
+          dispatch(hideSpinner());
+          toast.error("Transaction failed");
         }
     }
 
@@ -153,16 +171,17 @@ export default function CryptoPaymetPanel() {
                 <div className="w-full h-[80px] p-[10px] pb-[15px] flex justify-end items-center border-t-[2px] border-[gray]">
                     <button className='bg-[#3434FF] hover:bg-[#2C23D2] disabled:bg-[#7c7cff]  text-[white] rounded-[6px] h-[50px] px-[20px] flex items-center justify-center mx-[5px]'
                         onClick={() => { approve() }}
-                        disabled={Number(usdtAmount) <= Number(allowance)}>
+                        disabled={Number(usdtAmount) <= Number(allowance) || usdtAmount <= 0}>
                         Approve
                     </button>
                     <button className='bg-[#3434FF] hover:bg-[#2C23D2] disabled:bg-[#7c7cff] text-[white] rounded-[6px] h-[50px] px-[20px] flex items-center justify-center mx-[5px]'
                         onClick={() => { buy() }}
-                        disabled={Number(allowance) < Number(usdtAmount)}>
+                        disabled={Number(allowance) < Number(usdtAmount) || usdtAmount <= 0}>
                         Buy Now
                     </button>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     );
 }

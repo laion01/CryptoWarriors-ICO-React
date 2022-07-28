@@ -59,7 +59,7 @@ export default function WalletConnector() {
         try {
             await library.provider.request({
                 method: "wallet_switchEthereumChain",
-                params: [{ chainId: "0x61" }],
+                params: [{ chainId: "0x38" }],
             });
         } catch (switchError) {
             // 4902 error code indicates the chain is missing on the wallet
